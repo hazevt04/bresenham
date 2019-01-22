@@ -15,6 +15,8 @@ class BresenhamLineDrawer: public LineDrawer {
       ImageData* get_image_data( ) { return this->image_data; }
       void draw( Line* line );
    private:
+      void original_draw( Line* line );
+      void integer_draw( Line* line );
       ImageData* image_data;      
 };
 

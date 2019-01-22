@@ -40,7 +40,7 @@ int main( int argc, char* argv[] ) {
       bresenham_line_drawer->draw( lines[ index ] );
    }
    total_duration = ( std::clock() - start_time ) / ( double ) CLOCKS_PER_SEC;
-   std::cout << "Total Duration " << std::setprecision(3) << total_duration 
+   std::cout << "Total Duration " << std::setprecision(5) << total_duration 
       << " seconds." << std::endl;
 
    PNGRenderer* renderer = new PNGRenderer( image_data );
