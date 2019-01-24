@@ -7,12 +7,18 @@ include_directories( $CMAKE_SOURCE_DIR )
 add_definitions(-std=c++11 )
 
 set(SRCS
-   "BresenhamLineDrawer.cpp"
    "ImageData.cpp"
+   "BresenhamFasterLineDrawer.cpp"
+   "BresenhamLineDrawer.cpp"
    "PNGRenderer.cpp"
    "main.cpp"
 )
 
+option(DEBUG_MACRO "Debug verbosity option" OFF)
+
+if(DEBUG_MACRO)
+   add_definitions(-DDEBUG)
+endif()
 
 add_executable( bresenham "${SRCS}" )
 

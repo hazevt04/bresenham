@@ -2,7 +2,7 @@
 #include "Line.h"
 #include "ImageData.h"
 #include "PNGRenderer.h"
-#include "BresenhamLineDrawer.h"
+#include "BresenhamFasterLineDrawer.h"
 
 #include <iomanip>
 #include <ctime>
@@ -18,7 +18,8 @@ int main( int argc, char* argv[] ) {
    ulong background_color = ImageData::WHITE;
    ImageData* image_data = new ImageData( width, height, filename, background_color );
 
-   BresenhamLineDrawer* bresenham_line_drawer = new BresenhamLineDrawer( image_data );
+   BresenhamLineDrawer* line_drawer = new BresenhamLineDrawer( image_data );
+   //BresenhamFasterLineDrawer* line_drawer = new BresenhamFasterLineDrawer( image_data );
 
    Point* start_points[NUM_LINES];
    Point* end_points[NUM_LINES];
@@ -26,6 +27,8 @@ int main( int argc, char* argv[] ) {
 
    std::clock_t start_time;
    double total_duration = 0.0;
+
+   std::cout << "Drawing "<< NUM_LINES <<" lines and outputting to " << filename << std::endl;
 
    start_time = std::clock();
    for ( int index = 0; index < NUM_LINES; index++ ) {
@@ -37,7 +40,7 @@ int main( int argc, char* argv[] ) {
       end_points[ index ] = new Point( x1, y1 );
       lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_color );
    
-      bresenham_line_drawer->draw( lines[ index ] );
+      line_drawer->draw( lines[ index ] );
    }
    total_duration = ( std::clock() - start_time ) / ( double ) CLOCKS_PER_SEC;
    std::cout << "Total Duration " << std::setprecision(5) << total_duration 
@@ -55,6 +58,7 @@ int main( int argc, char* argv[] ) {
       delete start_points[ index ];
    }
    
+   delete line_drawer;
    delete image_data;
    return 0;
 }
