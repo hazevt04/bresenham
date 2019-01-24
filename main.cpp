@@ -34,8 +34,8 @@ int main( int argc, char* argv[] ) {
    for ( int index = 0; index < NUM_LINES; index++ ) {
       ulong x0 = 20 + ( index * 10 );
       ulong y0 = 40;
-      ulong x1 = 100 + ( index * 10 );
-      ulong y1 = 100;
+      ulong x1 = 200 + ( index * 10 );
+      ulong y1 = 600;
       start_points[ index ] = new Point( x0, y0 ); 
       end_points[ index ] = new Point( x1, y1 );
       lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_color );

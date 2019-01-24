@@ -41,7 +41,7 @@ void BresenhamLineDrawer::draw( Line* line ) {
          y += ( delta_err_sign * 1 );
          error -= 1.0;
          DEBUG_PRINTF( "\tIndex: %lu: y changed to %lu\n", index, y );
-         DEBUG_PRINTF( "Index: %lu: error after decremet is %5.4f\n", index, error );
+         DEBUG_PRINTF( "Index: %lu: error after decrement is %5.4f\n", index, error );
       }      
    } // end of for ( ulong index = x0; index < x1; index++ ) {
 }
