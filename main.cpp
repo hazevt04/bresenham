@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <ctime>
 
-#define NUM_LINES 4
+#define NUM_LINES 1
 
 int main( int argc, char* argv[] ) {
    
@@ -28,7 +28,7 @@ int main( int argc, char* argv[] ) {
    double total_duration = 0.0;
 
    std::cout << "Drawing "<< NUM_LINES <<" lines and outputting to " << filename << std::endl;
-   
+#if(0)
    start_points[ 0 ] = new Point( 500, 50 ); 
    end_points[ 0 ] = new Point( 500, 950 );
    line_colors[ 0 ] = ImageData::BLACK;
@@ -44,7 +44,12 @@ int main( int argc, char* argv[] ) {
    start_points[ 3 ] = new Point( 182, 818 );
    end_points[ 3 ] = new Point( 818, 182 ); 
    line_colors[ 3 ] = ImageData::YELLOW;
-   
+#endif
+   start_points[ 0 ] = new Point( 182, 818 );
+   end_points[ 0 ] = new Point( 818, 182 ); 
+   line_colors[ 0 ] = ImageData::YELLOW;
+
+
    start_time = std::clock();
    for ( int index = 0; index < NUM_LINES; index++ ) {
       lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_colors[ index ] );
