@@ -7,37 +7,47 @@
 #include <iomanip>
 #include <ctime>
 
-#define NUM_LINES 100
+#define NUM_LINES 4
 
 int main( int argc, char* argv[] ) {
    
    ulong width = 1000;
    ulong height = 1000;
-   ulong line_color = ImageData::BLACK;
    std::string filename = "temp.png";
-   ulong background_color = ImageData::WHITE;
+   ulong background_color = ImageData::BLACK;
    ImageData* image_data = new ImageData( width, height, filename, background_color );
 
    BresenhamLineDrawer* line_drawer = new BresenhamLineDrawer( image_data );
 
    Point* start_points[NUM_LINES];
    Point* end_points[NUM_LINES];
+   ulong line_colors[NUM_LINES];
    Line*  lines[NUM_LINES];
 
    std::clock_t start_time;
    double total_duration = 0.0;
 
    std::cout << "Drawing "<< NUM_LINES <<" lines and outputting to " << filename << std::endl;
+   
+   start_points[ 0 ] = new Point( 500, 50 ); 
+   end_points[ 0 ] = new Point( 500, 950 );
+   line_colors[ 0 ] = ImageData::BLACK;
 
+   start_points[ 1 ] = new Point( 50, 500 ); 
+   end_points[ 1 ] = new Point( 950, 500 );
+   line_colors[ 1 ] = ImageData::BLACK;
+
+   start_points[ 2 ] = new Point( 182, 182 ); 
+   end_points[ 2 ] = new Point( 818, 818 );
+   line_colors[ 2 ] = ImageData::RED;
+   
+   start_points[ 3 ] = new Point( 182, 818 );
+   end_points[ 3 ] = new Point( 818, 182 ); 
+   line_colors[ 3 ] = ImageData::YELLOW;
+   
    start_time = std::clock();
    for ( int index = 0; index < NUM_LINES; index++ ) {
-      ulong x0 = 20 + ( index * 10 );
-      ulong y0 = 40;
-      ulong x1 = 200 + ( index * 10 );
-      ulong y1 = 600;
-      start_points[ index ] = new Point( x0, y0 ); 
-      end_points[ index ] = new Point( x1, y1 );
-      lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_color );
+      lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_colors[ index ] );
    
       line_drawer->draw( lines[ index ] );
    }

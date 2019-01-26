@@ -17,6 +17,8 @@ class BresenhamLineDrawer: public LineDrawer {
    protected:
       void draw_high( Line* line );
       void draw_low( Line* line );
+      void draw_vertical( Line* line );
+      void draw_horizontal( Line* line );
       ImageData* image_data;      
 };
 
