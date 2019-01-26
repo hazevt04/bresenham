@@ -8,7 +8,6 @@ add_definitions(-std=c++11 )
 
 set(SRCS
    "ImageData.cpp"
-   "BresenhamFasterLineDrawer.cpp"
    "BresenhamLineDrawer.cpp"
    "PNGRenderer.cpp"
    "main.cpp"

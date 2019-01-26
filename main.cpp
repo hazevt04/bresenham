@@ -2,7 +2,7 @@
 #include "Line.h"
 #include "ImageData.h"
 #include "PNGRenderer.h"
-#include "BresenhamFasterLineDrawer.h"
+#include "BresenhamLineDrawer.h"
 
 #include <iomanip>
 #include <ctime>
@@ -19,7 +19,6 @@ int main( int argc, char* argv[] ) {
    ImageData* image_data = new ImageData( width, height, filename, background_color );
 
    BresenhamLineDrawer* line_drawer = new BresenhamLineDrawer( image_data );
-   //BresenhamFasterLineDrawer* line_drawer = new BresenhamFasterLineDrawer( image_data );
 
    Point* start_points[NUM_LINES];
    Point* end_points[NUM_LINES];
