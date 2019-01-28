@@ -43,7 +43,11 @@ class ImageData {
       static const ulong BLUE    = 0x0080ffL;
       static const ulong GREEN   = 0x00ff00L;
       static const ulong ORANGE  = 0xff8000L;
-      static const ulong PURPLE  = 0x7F00ffL;
+      static const ulong PURPLE  = 0x7f00ffL;
+      static const ulong BROWN   = 0x663300L;
+      static const ulong GRAY    = 0x808080L;
+      static const ulong PINK    = 0xffccccL;
+
    private:
       ulong* pixels;
       ulong width;
