@@ -13,7 +13,7 @@ int main( int argc, char* argv[] ) {
    
    ulong width = 1000;
    ulong height = 1000;
-   std::string filename = "temp.png";
+   std::string filename = "lines.png";
    ulong background_color = ImageData::BLACK;
    ImageData* image_data = new ImageData( width, height, filename, background_color );
 
