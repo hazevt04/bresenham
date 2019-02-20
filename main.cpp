@@ -27,7 +27,8 @@ int main( int argc, char* argv[] ) {
    std::clock_t start_time;
    double total_duration = 0.0;
 
-   std::cout << "Drawing "<< NUM_LINES <<" lines and outputting to " << filename << std::endl;
+   std::cout << "Drawing "<< NUM_LINES <<" lines and outputting to " 
+      << filename << std::endl;
 
    start_points[ 0 ] = new Point( 500, 50 ); 
    end_points[ 0 ] = new Point( 500, 950 );
@@ -45,7 +46,6 @@ int main( int argc, char* argv[] ) {
    end_points[ 3 ] = new Point( 818, 182 ); 
    line_colors[ 3 ] = ImageData::YELLOW;
 
-   //
    start_points[ 4 ] = new Point( 318, 66 );
    end_points[ 4 ] = new Point( 659, 884 ); 
    line_colors[ 4 ] = ImageData::PURPLE;
@@ -65,7 +65,8 @@ int main( int argc, char* argv[] ) {
 
    start_time = std::clock();
    for ( int index = 0; index < NUM_LINES; index++ ) {
-      lines[ index ] = new Line( start_points[ index ], end_points[ index ], line_colors[ index ] );
+      lines[ index ] = new Line( start_points[ index ], end_points[ index ], 
+            line_colors[ index ] );
    
       line_drawer->draw( lines[ index ] );
    }
